@@ -14,7 +14,7 @@ impl GenericCommand for ListCommand {
 
         let mut colors: Vec<&NamedColor> = NAMED_COLORS.iter().map(|r| r).collect();
         colors.sort_by_key(|nc| key_function(sort_order, &nc.color));
-        colors.dedup_by(|n1, n2| n1.color == n2.color);
+        // colors.dedup_by(|n1, n2| n1.color == n2.color);
 
         if config.interactive_mode {
             for nc in colors {
@@ -25,7 +25,7 @@ impl GenericCommand for ListCommand {
                     "{}",
                     config
                         .brush
-                        .paint(format!(" {:24}", nc.name), fg.ansi_style().on(bg))
+                        .paint(format!(" {:42}", nc.name), fg.ansi_style().on(bg))
                 )?;
             }
         } else {
