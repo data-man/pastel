@@ -6,8 +6,8 @@ use crate::utility::similar_colors;
 use pastel::Format;
 
 pub fn show_color_tty(out: &mut dyn Write, config: &Config, color: &Color) -> Result<()> {
-    let checkerboard_size: usize = 28;
-    let color_panel_size: usize = 18;
+    let checkerboard_size: usize = 20;
+    let color_panel_size: usize = 14;
 
     let color_panel_position: usize = config.padding + (checkerboard_size - color_panel_size) / 2;
     let text_position_x: usize = checkerboard_size + 2 * config.padding;
@@ -38,7 +38,7 @@ pub fn show_color_tty(out: &mut dyn Write, config: &Config, color: &Color) -> Re
             canvas.draw_text(
                 text_position_y,
                 text_position_x,
-                &format!("Name: {}", nc.name),
+                &format!("Name: {}", nc.fullname),
             );
             text_y_offset = 2;
             continue;

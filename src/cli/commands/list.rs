@@ -25,7 +25,7 @@ impl GenericCommand for ListCommand {
                     "{}",
                     config
                         .brush
-                        .paint(format!(" {:42}", nc.name), fg.ansi_style().on(bg))
+                        .paint(format!(" {:42}", nc.fullname), fg.ansi_style().on(bg))
                 )?;
             }
         } else {
